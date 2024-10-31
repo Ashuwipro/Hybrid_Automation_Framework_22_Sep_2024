@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="basePath">./logs</Property>
+    </Properties>
+    <Appenders> <!-- decides where to generate the log Console/File -->
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <File name="MAIN" fileName="${basePath}/automation.log">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </Appenders>
+    <Loggers> <!-- decides the type of log to generate -->
+        <Root level="INFO"> <!-- level : Application logs : ALL > TRACE > DEBUG > Automation logs :INFO > WARN > ERROR > FATAL > OFF -->
+            <!-- <AppenderRef ref="CONSOLE"/> -->
+            <AppenderRef ref="CONSOLE"/>
+            <AppenderRef ref="MAIN"/>
+        </Root>
+    </Loggers>
+</Configuration>
